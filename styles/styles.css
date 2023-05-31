@@ -124,6 +124,15 @@ body {
   .card {
     width: 100%;
   }
+  #productosContainer {
+    max-width: 600px;
+  }
+  nav {
+    font-size: 10px;
+  }
+  .header {
+    padding: 0%;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
