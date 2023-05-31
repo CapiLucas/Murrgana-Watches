@@ -134,5 +134,10 @@ body {
     padding: 0%;
   }
 }
+@media (max-width: 400px) {
+  #productosContainer {
+    max-width: 300px;
+  }
+}
 
 /*# sourceMappingURL=styles.css.map */
