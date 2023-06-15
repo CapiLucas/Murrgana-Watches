@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Murrgana</title>
+</head>
+<body>
+    <header class="header">
+        <a href="./index.html" class="logo">
+            <img src="./img/Murrganalogo.png" alt="Logo de la marca" />
+            <h1>MURRGANA</h1>
+        </a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#">Sobre nosotros</a></li>
+            <li><a href="./contacto.html">Contactos</a></li>
+          </ul>
+        </nav>
+        <a id="btn" href="#"><button>Cart <i class="fa-solid fa-cart-shopping"></i></button></a>
+    </header>
+    <main>
+        <section id="compra-section">
+            <h2>DEJANOS UN MENSAJE</h2>
+            <div class="contact-content">
+                <form id="form" action="" class="form">
+                    <label for="name">Nombre Completo <span>*</span></label>
+                    <input name="name" required type="text" id="name"> 
+                    <label for="email">Correo Electronico <span>*</span></label>
+                    <input name="email" type="text" id="email"> 
+                    <label for="message">MENSAJE</label>
+                    <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                    <button type="submit" class="send-message">Enviar mensaje</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
