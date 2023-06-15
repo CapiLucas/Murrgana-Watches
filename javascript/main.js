@@ -39,13 +39,19 @@ function actualizarInterfaz() {
 }
 
 function guardarProducto(producto) {
-  const productosGuardados =
-    JSON.parse(localStorage.getItem("productosGuardados")) || [];
-  productosGuardados.push(producto);
-  localStorage.setItem(
-    "productosGuardados",
-    JSON.stringify(productosGuardados)
-  );
+  const productosGuardados = JSON.parse(localStorage.getItem("productosGuardados")) || [];
+  const productoExistente = productosGuardados.find((p) => p.id === producto.id);
+  
+  if (productoExistente) {
+    // Si el producto ya está en el carrito, incrementar la cantidad
+    productoExistente.cantidad++;
+  } else {
+    // Si el producto no está en el carrito, agregarlo
+    producto.cantidad = 1;
+    productosGuardados.push(producto);
+  }
+  
+  localStorage.setItem("productosGuardados", JSON.stringify(productosGuardados));
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -86,13 +92,16 @@ document.addEventListener("DOMContentLoaded", () => {
       <h2>Nombre: ${producto.nombre}</h2>
       <div>
         <img class="compras-img" src="${producto.imagenURL}" alt="Imagen del producto">
+        <div class="button-cant">
         <button class="erase" data-id="${producto.id}">borrar</button>
+        <p class="cantidad-${producto.id}">Cantidad: ${producto.cantidad}</p> <!-- Actualizar aquí -->
+        </div>
       </div>
       <p>Precio: ${producto.precio}</p>
     `;
     showCarrito.appendChild(div);
-    preciosjuntos.push(producto.precio);
-
+    preciosjuntos.push(producto.precio * producto.cantidad);
+  
     // Agregar event listener al botón de borrar
     const borrarButton = div.querySelector(".erase");
     borrarButton.addEventListener("click", () => {
@@ -101,12 +110,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  function eliminarProducto(id) {
+    let carritoStorage = localStorage.getItem("productosGuardados");
+    if (carritoStorage) {
+      let carrito = JSON.parse(carritoStorage);
+      const index = carrito.findIndex((producto) => producto.id === id);
+      if (index !== -1) {
+        if (carrito[index].cantidad > 1) {
+          // Si la cantidad es mayor a 1, decrementarla
+          carrito[index].cantidad--;
+        } else {
+          // Si la cantidad es 1 o menor, eliminar el producto del carrito
+          carrito.splice(index, 1);
+        }
+        localStorage.setItem("productosGuardados", JSON.stringify(carrito));
+      }
+    }
+    location.reload();
+  }
+
   let total = preciosjuntos.reduce((a, b) => a + b, 0);
 
   let totaldiv = document.createElement("div");
   totaldiv.className = "total";
   totaldiv.innerHTML = `
-  <p>Total: ${total}</p>
+    <p>Total: ${total}</p>
   `;
   showCarrito.appendChild(totaldiv);
 

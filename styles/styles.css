@@ -177,6 +177,9 @@ main #compra-section .contact-content .form .send-message {
 }
 
 #mostrar-carrito {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   border-radius: 7px;
   border: 1px solid black;
   overflow: auto;
@@ -211,6 +214,9 @@ main #compra-section .contact-content .form .send-message {
   border-radius: 4px;
   color: white;
   background-color: #45a049;
+}
+.compras .button-cant {
+  flex-direction: column;
 }
 .compras .compras-img {
   width: 150px;
