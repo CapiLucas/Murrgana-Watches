@@ -145,6 +145,9 @@ body {
   transform: scale(1.2);
 }
 
+main {
+  height: 70vh;
+}
 main #compra-section {
   margin-top: 1rem;
 }
@@ -257,6 +260,7 @@ footer div img {
 
 #productDetails {
   margin-top: 3rem;
+  margin-bottom: 3rem;
   width: 1000px;
   height: 600px;
   background-color: #405766;
