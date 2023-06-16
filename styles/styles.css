@@ -180,9 +180,7 @@ main #compra-section .contact-content .form .send-message {
 }
 
 #mostrar-carrito {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  display: none;
   border-radius: 7px;
   border: 1px solid black;
   overflow: auto;

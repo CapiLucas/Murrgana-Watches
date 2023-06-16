@@ -43,10 +43,10 @@ function guardarProducto(producto) {
   const productoExistente = productosGuardados.find((p) => p.id === producto.id);
 
   if (productoExistente) {
-    // Si el producto ya está en el carrito, incrementar la cantidad
+   
     productoExistente.cantidad++;
   } else {
-    // Si el producto no está en el carrito, agregarlo
+    
     producto.cantidad = 1;
     productosGuardados.push(producto);
   }
@@ -55,48 +55,13 @@ function guardarProducto(producto) {
   actualizarInterfaz();
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const showCarrito = document.getElementById("mostrar-carrito");
-  const btnCarrito = document.getElementById("btn");
-  btnCarrito.addEventListener("click", () => {
-    if (showCarrito.style.display != "none") {
-      showCarrito.style.display = "none";
-    } else {
-      showCarrito.style.display = "block";
-    }
+function recuperarProductosGuardados() {
+  const productosGuardados =
+    JSON.parse(localStorage.getItem("productosGuardados")) || [];
+  productosGuardados.forEach((producto) => {
+    console.log("Producto guardado:", producto);
   });
-
-
-  let carrito = [];
-  let preciosjuntos = [];
-  let carritoStorage = localStorage.getItem("productosGuardados");
-  if (carritoStorage) {
-    carrito = JSON.parse(carritoStorage);
-  }
-
-  carrito.forEach((producto) => {
-    let div = document.createElement("div");
-    div.className = "compras";
-    div.innerHTML = `
-      <h2>Nombre: ${producto.nombre}</h2>
-      <div>
-        <img class="compras-img" src="${producto.imagenURL}" alt="Imagen del producto">
-        <div class="button-cant">
-        <button class="erase" data-id="${producto.id}">borrar</button>
-        <p class="cantidad-${producto.id}">Cantidad: ${producto.cantidad}</p> <!-- Actualizar aquí -->
-        </div>
-      </div>
-      <p>Precio: ${producto.precio}</p>
-    `;
-    showCarrito.appendChild(div);
-    preciosjuntos.push(producto.precio * producto.cantidad);
-  
-    const borrarButton = div.querySelector(".erase");
-    borrarButton.addEventListener("click", () => {
-      eliminarProducto(producto.id);
-      div.remove();
-    });
-  });
+}
 
   function eliminarProducto(id) {
     let carritoStorage = localStorage.getItem("productosGuardados");
@@ -114,28 +79,10 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("productosGuardados", JSON.stringify(carrito));
       }
     }
-    location.reload();
   }
-
-  let total = preciosjuntos.reduce((a, b) => a + b, 0);
-
-  let totaldiv = document.createElement("div");
-  totaldiv.className = "total";
-  totaldiv.innerHTML = `
-    <p>Total: ${total}</p>
-  `;
-  showCarrito.appendChild(totaldiv);
-
   recuperarProductosGuardados();
-});
+;
 
-function recuperarProductosGuardados() {
-  const productosGuardados =
-    JSON.parse(localStorage.getItem("productosGuardados")) || [];
-  productosGuardados.forEach((producto) => {
-    console.log("Producto guardado:", producto);
-  });
-}
 
 document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
