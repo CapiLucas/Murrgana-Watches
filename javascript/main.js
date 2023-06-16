@@ -41,7 +41,7 @@ function actualizarInterfaz() {
 function guardarProducto(producto) {
   const productosGuardados = JSON.parse(localStorage.getItem("productosGuardados")) || [];
   const productoExistente = productosGuardados.find((p) => p.id === producto.id);
-  
+
   if (productoExistente) {
     // Si el producto ya está en el carrito, incrementar la cantidad
     productoExistente.cantidad++;
@@ -50,8 +50,9 @@ function guardarProducto(producto) {
     producto.cantidad = 1;
     productosGuardados.push(producto);
   }
-  
+
   localStorage.setItem("productosGuardados", JSON.stringify(productosGuardados));
+  actualizarInterfaz();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -65,18 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  function eliminarProducto(id) {
-    let carritoStorage = localStorage.getItem("productosGuardados");
-    if (carritoStorage) {
-      let carrito = JSON.parse(carritoStorage);
-      const index = carrito.findIndex((producto) => producto.id === id);
-      if (index !== -1) {
-        carrito.splice(index, 1); // Eliminar el producto del carrito
-        localStorage.setItem("productosGuardados", JSON.stringify(carrito));
-      }
-    }
-    location.reload();
-  }
 
   let carrito = [];
   let preciosjuntos = [];
@@ -102,11 +91,10 @@ document.addEventListener("DOMContentLoaded", () => {
     showCarrito.appendChild(div);
     preciosjuntos.push(producto.precio * producto.cantidad);
   
-    // Agregar event listener al botón de borrar
     const borrarButton = div.querySelector(".erase");
     borrarButton.addEventListener("click", () => {
       eliminarProducto(producto.id);
-      div.remove(); // Eliminar la fila del producto del DOM
+      div.remove();
     });
   });
 
