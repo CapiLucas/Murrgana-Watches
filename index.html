@@ -10,6 +10,8 @@
       src="https://kit.fontawesome.com/2ac8ba4401.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="./styles/styles.css" />
   </head>
   <body>
@@ -24,13 +26,16 @@
           <li><a href="./contacto.html">Contactos</a></li>
         </ul>
       </nav>
-      <a id="btn" href="#"
+      <a id="boton" href="#"
         ><button>Cart <i class="fa-solid fa-cart-shopping"></i></button
       ></a>
     </header>
     <section class="product-section">
       <div id="productosContainer"></div>
     </section>
+    <div id="modal-container">
+    </div>
+    <div id="overlay"></div>
     <footer>
       <div>
         <p>

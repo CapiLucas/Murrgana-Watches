@@ -12,7 +12,7 @@ body {
   background-color: rgb(211, 227, 241);
 }
 
-.product-section{
+.product-section {
   contain: paint;
   padding: 10px;
   margin: auto;
@@ -52,7 +52,7 @@ body {
     display: block;
     width: 100%;
     padding: 8px;
-    background-color: #4CAF50;
+    background-color: #4caf50;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -86,7 +86,6 @@ body {
   }
 }
 
-
 .header {
   background-color: #1b3039;
   display: flex;
@@ -97,7 +96,7 @@ body {
   .logo {
     display: flex;
     align-items: center;
-    h1{
+    h1 {
       margin-left: 3px;
       color: #e2f1f8;
     }
@@ -131,7 +130,7 @@ body {
       text-decoration: none;
     }
   }
-  #btn {
+  #boton {
     button {
       font-weight: 700;
       color: #1b3039;
@@ -150,28 +149,28 @@ body {
   }
 }
 
-main{
+main {
   height: 70vh;
-  #compra-section{
+  #compra-section {
     margin-top: 1rem;
-    h2{
+    h2 {
       display: flex;
       justify-content: center;
     }
-    .contact-content{
+    .contact-content {
       display: flex;
       justify-content: center;
-      .form{
+      .form {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
-        label{
-          span{
+        label {
+          span {
             color: red;
           }
         }
-        .send-message{
+        .send-message {
           margin-top: 2px;
           font-weight: 700;
           color: #1b3039;
@@ -186,7 +185,7 @@ main{
   }
 }
 
-#mostrar-carrito{
+#mostrar-carrito {
   display: none;
   border-radius: 7px;
   border: 1px solid black;
@@ -197,46 +196,46 @@ main{
   bottom: 50px;
   position: fixed;
   background-color: #405766;
-  .total{
+  .total {
     background-color: #abd4e6;
     text-align: center;
   }
 }
-.compras{
+.compras {
   display: flex;
   flex-direction: column;
   align-items: center;
-  h2{
+  h2 {
     color: #e2f1f8;
   }
-  p{
+  p {
     color: #e2f1f8;
   }
-  div{
+  div {
     display: flex;
     align-items: center;
-    button{
-      border-radius:4px ;
+    button {
+      border-radius: 4px;
       color: white;
       background-color: #45a049;
     }
   }
-  .button-cant{
+  .button-cant {
     flex-direction: column;
   }
-  .compras-img{
+  .compras-img {
     width: 150px;
     height: 155px;
   }
 }
 
-#object-section{
+#object-section {
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center ;
-  .object-content{
+  justify-content: center;
+  .object-content {
     display: flex;
     justify-content: center;
     margin-top: 3rem;
@@ -245,26 +244,26 @@ main{
   }
 }
 
-footer{
-  font-family: roboto,sans-serif;
+footer {
+  font-family: roboto, sans-serif;
   width: 100%;
   height: 200px;
   background-color: #0b2c60;
   display: flex;
   align-items: center;
   justify-content: center;
-  div{
-    p{
+  div {
+    p {
       font-size: 17px;
     }
-    img{
+    img {
       width: 370px;
       height: 150px;
     }
   }
 }
 
-#productDetails{
+#productDetails {
   margin-top: 3rem;
   margin-bottom: 3rem;
   width: 1000px;
@@ -276,21 +275,21 @@ footer{
   align-items: center;
   border-radius: 7px;
   border: 4px solid darkblue;
-  p{
+  p {
     text-align: justify;
   }
-  .topdiv{
+  .topdiv {
     display: flex;
     align-items: center;
   }
-  .bottomdiv{
+  .bottomdiv {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
     .buy-button {
       display: block;
       padding: 8px;
-      background-color: #4CAF50;
+      background-color: #4caf50;
       color: white;
       text-align: center;
       text-decoration: none;
@@ -302,9 +301,8 @@ footer{
     .buy-button:hover {
       background-color: #45a049;
     }
-
   }
-  img{
+  img {
     width: 265px;
     height: 340px;
     background-color: #607583;
@@ -312,20 +310,124 @@ footer{
     margin: 10px 10px;
   }
 }
-@media (max-width:768px){
-  #mostrar-carrito{
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  cursor: not-allowed;
+  pointer-events: auto;
+  z-index: 9;
+  display: none;
+}
+
+#modal-container {
+  overflow: auto;
+  display: none;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  background-color: #fff;
+  width: 300px;
+  height: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  flex-direction: column;
+  h1 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .modal-header{
+    display: flex;
+    justify-content: space-between;
+  }
+  .watches{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin: 10px;
+    border: 1px solid rgb(39, 95, 145);
+    .img-sell{
+      width: 250px;
+      height: 250px;
+    }
+  }
+  .botones{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    .boton1{
+      display: block;
+      padding: 8px;
+      background-color: #be0909;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .boton2{
+      margin: 5px;
+      display: block;
+      padding: 8px;
+      background-color: #09be30;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      
+    }
+  }
+}
+
+
+.agregados {
+  margin: auto;
+  border: 1px solid #614444;
+  border-radius: 4px;
+  box-sizing: border-box;
+  h3 {
+    text-align: center;
+  }
+  p {
+    text-align: center;
+  }
+  img {
+    cursor: pointer;
+    max-width: 300px;
+    height: 300px;
+  }
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  #mostrar-carrito {
     height: 235px;
     width: 300px;
   }
 }
-
 @media (max-width: 600px) {
-  footer{
-    div{
-      p{
+  footer {
+    div {
+      p {
         font-size: 10px;
       }
-      img{
+      img {
         width: 200px;
       }
     }
@@ -336,15 +438,15 @@ footer{
   #productosContainer {
     max-width: 600px;
   }
-  nav{
+  nav {
     font-size: 10px;
   }
-  .header{
+  .header {
     padding: 0%;
   }
 }
 @media (max-width: 450px) {
-  #btn{
+  #boton {
     position: fixed;
     bottom: 0px;
     z-index: 1;
@@ -352,12 +454,12 @@ footer{
   #productosContainer {
     max-width: 300px;
   }
-  .product-section{
+  .product-section {
     justify-content: center;
   }
 }
-@media (max-width:375px){
-  #compra-section{
+@media (max-width: 375px) {
+  #compra-section {
     width: fit-content;
   }
 }

@@ -33,25 +33,28 @@ function actualizarInterfaz() {
       guardarProducto(producto);
       location.reload();
     });
-
     productosContainer.appendChild(card);
   });
 }
 
 function guardarProducto(producto) {
-  const productosGuardados = JSON.parse(localStorage.getItem("productosGuardados")) || [];
-  const productoExistente = productosGuardados.find((p) => p.id === producto.id);
+  const productosGuardados =
+    JSON.parse(localStorage.getItem("productosGuardados")) || [];
+  const productoExistente = productosGuardados.find(
+    (p) => p.id === producto.id
+  );
 
   if (productoExistente) {
-   
     productoExistente.cantidad++;
   } else {
-    
     producto.cantidad = 1;
     productosGuardados.push(producto);
   }
 
-  localStorage.setItem("productosGuardados", JSON.stringify(productosGuardados));
+  localStorage.setItem(
+    "productosGuardados",
+    JSON.stringify(productosGuardados)
+  );
   actualizarInterfaz();
 }
 
@@ -63,26 +66,7 @@ function recuperarProductosGuardados() {
   });
 }
 
-  function eliminarProducto(id) {
-    let carritoStorage = localStorage.getItem("productosGuardados");
-    if (carritoStorage) {
-      let carrito = JSON.parse(carritoStorage);
-      const index = carrito.findIndex((producto) => producto.id === id);
-      if (index !== -1) {
-        if (carrito[index].cantidad > 1) {
-          // Si la cantidad es mayor a 1, decrementarla
-          carrito[index].cantidad--;
-        } else {
-          // Si la cantidad es 1 o menor, eliminar el producto del carrito
-          carrito.splice(index, 1);
-        }
-        localStorage.setItem("productosGuardados", JSON.stringify(carrito));
-      }
-    }
-  }
-  recuperarProductosGuardados();
-;
-
+recuperarProductosGuardados();
 
 document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
@@ -103,4 +87,81 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+const carritobtn = document.getElementById("boton");
+const carrito = document.getElementById("modal-container");
+const overlay = document.getElementById("overlay");
+const productosGuardados =
+  JSON.parse(localStorage.getItem("productosGuardados")) || [];
+
+carritobtn.addEventListener("click", function () {
+  carrito.style.display = "flex";
+  overlay.style.display = "block";
+
+  carrito.innerHTML = "";
+
+  const modalHeader = document.createElement("div");
+  modalHeader.className = "modal-header";
+  modalHeader.innerHTML = `
+    <h1 class="modal-header-title">Carrito</h1>
+    <a href="index.html"> <i class="fa-regular fa-circle-xmark"></i></a>
+  `;
+  carrito.appendChild(modalHeader);
+
+  productosGuardados.forEach((producto) => {
+    let carritocontent = document.createElement("div");
+    carritocontent.className = "watches";
+    carritocontent.innerHTML = `
+      <h1>${producto.nombre}</h1>
+      <img class="img-sell" src=${producto.imagenURL}></img>
+      <p>precio:$${producto.precio}</p>
+      <p>cant:${producto.cantidad}</p>
+    `;
+    carrito.appendChild(carritocontent);
+  });
+
+  let modelFooter = document.createElement("div");
+  modelFooter.className = "botones";
+  modelFooter.innerHTML = `
+    <button class="boton1">Limpiar Carrito</button>
+    <button class="boton2">Comprar</button>
+    `;
+  carrito.appendChild(modelFooter);
+
+  const boton1 = document.getElementsByClassName("boton1")[0];
+  boton1.addEventListener("click", function () {
+    localStorage.clear();
+    actualizarInterfaz();
+    location.reload();
+  });
+
+  const boton2 = document.getElementsByClassName("Boton2")[0];
+  boton2.addEventListener("click", function () {
+    Swal.fire({
+      title: "¿Estás seguro?",
+      text: "¿Deseas borrar los datos del carrito?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Sí, borrar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.clear();
+        Swal.fire(
+          "Borrado",
+          "Los datos del carrito han sido borrados",
+          "success"
+        );
+        // Actualizar la interfaz después de borrar el localStorage
+        actualizarInterfaz();
+      }
+    });
+  });
+});
+
+overlay.addEventListener("click", function (event) {
+  if (event.target === overlay) {
+    carrito.style.display = "none";
+    overlay.style.display = "none";
+  }
+});
 actualizarInterfaz();
