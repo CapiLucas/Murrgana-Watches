@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
-
 * {
   padding: 0;
   margin: 0;
@@ -251,9 +250,10 @@ footer {
 }
 footer div p {
   font-size: 17px;
+  color: #fcfcfc;
 }
 footer div img {
-  width: 370px;
+  width: 400px;
   height: 150px;
 }
 
@@ -303,6 +303,10 @@ footer div img {
   background-color: #607583;
   border-radius: 90px;
   margin: 10px 10px;
+}
+
+.relojnombre {
+  color: #abd4e6;
 }
 
 #overlay {
@@ -411,10 +415,10 @@ footer div img {
 }
 @media (max-width: 600px) {
   footer div p {
-    font-size: 10px;
+    font-size: 8px;
   }
   footer div img {
-    width: 200px;
+    width: 140px;
   }
   .card {
     width: 100%;

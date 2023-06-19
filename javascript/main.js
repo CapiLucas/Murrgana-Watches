@@ -80,8 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const productDetails = document.getElementById("productDetails");
     productDetails.innerHTML = `
       <h1>${product.nombre}</h1>
-      <div class="topdiv"><img src="${product.imagenURL}" alt="Imagen del producto"> <p>El reloj ${product.nombre} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed augue elementum, scelerisque diam aliquet, commodo enim. Aliquam mattis urna quis nibh condimentum lacinia. Quisque lobortis nulla quis velit posuere, eu tincidunt eros vulputate. Curabitur ac nulla at dui euismod gravida. In lobortis sollicitudin aliquet. Nam vitae ex eu nibh tincidunt rutrum vel ac turpis. Sed congue ut nibh ac lobortis. Donec blandit convallis lectus, in vulputate orci efficitur in. Nullam nibh arcu, porta in tincidunt ut, tincidunt eu quam. Ut dictum nibh sit amet gravida condimentum. Pellentesque suscipit ex id dui tincidunt euismod. Nam pellentesque fermentum porta. Nulla risus magna, tincidunt ac ullamcorper nec, efficitur at enim.
-      consequat est tortor. Sed ut blandit lacus.</p></div>
+      <div class="topdiv"><img src="${product.imagenURL}" alt="Imagen del producto"> <p>El reloj ${product.nombre} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed augue elementum, scelerisque  lacinia. Quisque lobortis. In lobortis sollicitudin aliquet. Nam vitae ex eu nibh tincidunt rutrum vel ac turpis. Sed congue ut nibh ac lobortis. Donec blandit convallis lectus, in vulputate orci efficitur in. Nullam nibh arcu, porta in tincidunt ut, tincidunt eu quam. Ut dictum nibh sit amet gravida condimentum.</p></div>
       <div class="bottomdiv"><p>$${product.precio}</p> <a href="#" class="buy-button">COMPRAR</a></div>
     `;
   }

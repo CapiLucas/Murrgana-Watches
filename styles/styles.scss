@@ -255,9 +255,10 @@ footer {
   div {
     p {
       font-size: 17px;
+      color: #fcfcfc;
     }
     img {
-      width: 370px;
+      width: 400px;
       height: 150px;
     }
   }
@@ -309,6 +310,10 @@ footer {
     border-radius: 90px;
     margin: 10px 10px;
   }
+} 
+
+.relojnombre{
+  color: #abd4e6;
 }
 
 #overlay {
@@ -425,10 +430,10 @@ footer {
   footer {
     div {
       p {
-        font-size: 10px;
+        font-size: 8px;
       }
       img {
-        width: 200px;
+        width: 140px;
       }
     }
   }
