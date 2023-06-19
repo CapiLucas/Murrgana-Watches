@@ -128,34 +128,30 @@ carritobtn.addEventListener("click", function () {
   carrito.appendChild(modelFooter);
 
   const boton1 = document.getElementsByClassName("boton1")[0];
-  boton1.addEventListener("click", function () {
+  boton1.addEventListener("click", () => {
     localStorage.clear();
-    actualizarInterfaz();
     location.reload();
   });
 
-  const boton2 = document.getElementsByClassName("Boton2")[0];
-  boton2.addEventListener("click", function () {
+  const boton2 = document.getElementsByClassName("boton2")[0];
+  boton2.addEventListener("click", () => {
     Swal.fire({
-      title: "¿Estás seguro?",
-      text: "¿Deseas borrar los datos del carrito?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonText: "Sí, borrar",
-      cancelButtonText: "Cancelar",
+      title: "Gracias por comprar!",
+      text: "Se le enviara un email con la informacion del producto",
+      icon: "success",
+      confirmButtonText: "Bien", 
     }).then((result) => {
       if (result.isConfirmed) {
-        localStorage.clear();
-        Swal.fire(
-          "Borrado",
-          "Los datos del carrito han sido borrados",
-          "success"
-        );
-        // Actualizar la interfaz después de borrar el localStorage
-        actualizarInterfaz();
+        setTimeout(() => {
+          location.reload();
+        }, 3000); 
       }
     });
+  
+    localStorage.clear(); 
+    
   });
+  actualizarInterfaz();
 });
 
 overlay.addEventListener("click", function (event) {
