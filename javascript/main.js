@@ -31,7 +31,7 @@ function actualizarInterfaz() {
 
     buyButton.addEventListener("click", () => {
       guardarProducto(producto);
-      location.reload();
+      actualizarCarrito();
     });
     productosContainer.appendChild(card);
   });
@@ -55,7 +55,6 @@ function guardarProducto(producto) {
     "productosGuardados",
     JSON.stringify(productosGuardados)
   );
-  actualizarInterfaz();
 }
 
 function recuperarProductosGuardados() {
@@ -91,13 +90,9 @@ const carrito = document.getElementById("modal-container");
 const overlay = document.getElementById("overlay");
 const productosGuardados =
   JSON.parse(localStorage.getItem("productosGuardados")) || [];
-
-carritobtn.addEventListener("click", function () {
-  carrito.style.display = "flex";
-  overlay.style.display = "block";
-
+function actualizarCarrito() {
+  const productosGuardados = JSON.parse(localStorage.getItem("productosGuardados")) || [];
   carrito.innerHTML = "";
-
   const modalHeader = document.createElement("div");
   modalHeader.className = "modal-header";
   modalHeader.innerHTML = `
@@ -125,6 +120,15 @@ carritobtn.addEventListener("click", function () {
     <button class="boton2">Comprar</button>
     `;
   carrito.appendChild(modelFooter);
+}
+
+carritobtn.addEventListener("click", function () {
+  carrito.style.display = "flex";
+  overlay.style.display = "block";
+
+  carrito.innerHTML = "";
+
+  actualizarCarrito();
 
   const boton1 = document.getElementsByClassName("boton1")[0];
   boton1.addEventListener("click", () => {
@@ -138,17 +142,16 @@ carritobtn.addEventListener("click", function () {
       title: "Gracias por comprar!",
       text: "Se le enviara un email con la informacion del producto",
       icon: "success",
-      confirmButtonText: "Bien", 
+      confirmButtonText: "Bien",
     }).then((result) => {
       if (result.isConfirmed) {
         setTimeout(() => {
           location.reload();
-        }, 3000); 
+        }, 3000);
       }
     });
-  
-    localStorage.clear(); 
-    
+
+    localStorage.clear();
   });
   actualizarInterfaz();
 });
