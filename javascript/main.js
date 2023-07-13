@@ -117,7 +117,7 @@ function actualizarCarrito() {
   modelFooter.className = "botones";
   modelFooter.innerHTML = `
     <button class="boton1">Limpiar Carrito</button>
-    <button class="boton2">Comprar</button>
+    <a href="./pago.html"><button href class="boton2">Comprar</button></a>
     `;
   carrito.appendChild(modelFooter);
 }
@@ -135,25 +135,6 @@ carritobtn.addEventListener("click", function () {
     localStorage.clear();
     location.reload();
   });
-
-  const boton2 = document.getElementsByClassName("boton2")[0];
-  boton2.addEventListener("click", () => {
-    Swal.fire({
-      title: "Gracias por comprar!",
-      text: "Se le enviara un email con la informacion del producto",
-      icon: "success",
-      confirmButtonText: "Bien",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        setTimeout(() => {
-          location.reload();
-        }, 3000);
-      }
-    });
-
-    localStorage.clear();
-  });
-  actualizarInterfaz();
 });
 
 overlay.addEventListener("click", function (event) {

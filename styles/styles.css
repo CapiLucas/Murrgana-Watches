@@ -102,6 +102,7 @@ body {
 .header .logo h1 {
   margin-left: 3px;
   color: #e2f1f8;
+  font-size: 20px !important;
 }
 .header .logo img {
   height: 70px;
@@ -424,9 +425,6 @@ footer div img {
   }
 }
 @media (max-width: 600px) {
-  h1 {
-    font-size: 20px !important;
-  }
   footer div p {
     font-size: 8px;
   }
