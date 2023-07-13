@@ -1,3 +1,25 @@
+class Producto {
+  constructor(nombre, precio, imagenURL, id) {
+    this.nombre = nombre;
+    this.precio = precio;
+    this.imagenURL = imagenURL;
+    this.id = id;
+  }
+}
+
+let productos = [];
+
+function cargarProductos() {
+  return fetch("productos.json")
+    .then(response => response.json())
+    .then(data => {
+      productos = data.map(producto => new Producto(producto.nombre, producto.precio, producto.imagenURL, producto.id));
+    })
+    .catch(error => {
+      console.error("Error al cargar los productos:", error);
+    });
+}
+
 function actualizarInterfaz() {
   const productosContainer = document.getElementById("productosContainer");
   productosContainer.innerHTML = "";
@@ -90,8 +112,10 @@ const carrito = document.getElementById("modal-container");
 const overlay = document.getElementById("overlay");
 const productosGuardados =
   JSON.parse(localStorage.getItem("productosGuardados")) || [];
+
 function actualizarCarrito() {
-  const productosGuardados = JSON.parse(localStorage.getItem("productosGuardados")) || [];
+  const productosGuardados =
+    JSON.parse(localStorage.getItem("productosGuardados")) || [];
   carrito.innerHTML = "";
   const modalHeader = document.createElement("div");
   modalHeader.className = "modal-header";
@@ -162,4 +186,7 @@ overlay.addEventListener("click", function (event) {
     overlay.style.display = "none";
   }
 });
-actualizarInterfaz();
+
+cargarProductos().then(() => {
+  actualizarInterfaz();
+});
