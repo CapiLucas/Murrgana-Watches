@@ -407,6 +407,16 @@ footer div img {
   height: 300px;
 }
 
+.g-3 {
+  display: flex;
+  justify-content: center;
+}
+
+.col-12 {
+  display: flex;
+  justify-content: center;
+}
+
 @media (max-width: 768px) {
   #mostrar-carrito {
     height: 235px;
@@ -414,6 +424,9 @@ footer div img {
   }
 }
 @media (max-width: 600px) {
+  h1 {
+    font-size: 20px !important;
+  }
   footer div p {
     font-size: 8px;
   }

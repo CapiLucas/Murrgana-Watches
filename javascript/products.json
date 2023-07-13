@@ -1,38 +1,38 @@
 [
-    {
-      "nombre": "Box Engasse",
-      "precio": 10000,
-      "imagenURL": "./img/boxengasse.png",
-      "id": 1
-    },
-    {
-      "nombre": "Kock Nap",
-      "precio": 10000,
-      "imagenURL": "./img/knocknap.png",
-      "id": 2
-    },
-    {
-      "nombre": "La Night",
-      "precio": 10000,
-      "imagenURL": "./img/lanight.png",
-      "id": 3
-    },
-    {
-      "nombre": "Midmix",
-      "precio": 10000,
-      "imagenURL": "./img/midmix.png",
-      "id": 4
-    },
-    {
-      "nombre": "Sideral Blue",
-      "precio": 10000,
-      "imagenURL": "./img/sideralblue.png",
-      "id": 5
-    },
-    {
-      "nombre": "Skin Glam",
-      "precio": 10000,
-      "imagenURL": "./img/skinglam.png",
-      "id": 6
-    }
+  {
+    "nombre": "Box Engasse",
+    "precio": 10000,
+    "imagenURL": "./img/boxengasse.png",
+    "id": 1
+  },
+  {
+    "nombre": "Kock Nap",
+    "precio": 10000,
+    "imagenURL": "./img/knocknap.png",
+    "id": 2
+  },
+  {
+    "nombre": "La Night",
+    "precio": 10000,
+    "imagenURL": "./img/lanight.png",
+    "id": 3
+  },
+  {
+    "nombre": "Midmix",
+    "precio": 10000,
+    "imagenURL": "./img/midmix.png",
+    "id": 4
+  },
+  {
+    "nombre": "Sideral Blue",
+    "precio": 10000,
+    "imagenURL": "./img/sideralblue.png",
+    "id": 5
+  },
+  {
+    "nombre": "Skin Glam",
+    "precio": 10000,
+    "imagenURL": "./img/skinglam.png",
+    "id": 6
+  }
 ]

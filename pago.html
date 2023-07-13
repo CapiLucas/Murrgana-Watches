@@ -6,30 +6,66 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="shortcut icon" href="./img/murrganalogo_Ll3_icon.ico" type="image/x-icon">
-        <title>Murrgana</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <title>Murrgana</title>        
         <script src="https://kit.fontawesome.com/2ac8ba4401.js"crossorigin="anonymous"></script>
         <link rel="stylesheet" href="./styles/styles.css" />
       </head>
 </head>
 <body>
-    <header class="header">
-        <a href="./index.html" class="logo">
-          <img src="./img/Murrganalogo.png" alt="Logo de la marca" />
-          <h1>MURRGANA</h1>
-        </a>
-        <nav>
-          <ul class="nav-links">
-            <li><a href="#">Sobre nosotros</a></li>
-            <li><a href="./contacto.html">Contactos</a></li>
-          </ul>
-        </nav>
-        <a id="boton" href="#"
-        ><button>Cart <i class="fa-solid fa-cart-shopping"></i></button
-      ></a>
-    </header>
+  <header class="header">
+    <a href="./index.html" class="logo">
+      <img src="./img/Murrganalogo.png" alt="Logo de la marca" />
+      <h1>MURRGANA</h1>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#">Sobre nosotros</a></li>
+        <li><a href="./contacto.html">Contactos</a></li>
+      </ul>
+    </nav>
+    <a id="boton" href="#"
+      ><button>Cart <i class="fa-solid fa-cart-shopping"></i></button
+    ></a>
+  </header>
     <section id="object-section">
-        <div id="productDetails"></div>
+        <div id="productDetails">
+          <form class="row g-3" id="form">
+            <div class="col-md-4">
+              <label for="validationDefault01" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="validationDefault01" value="" name="name" required>
+            </div>
+            <div class="col-md-4">
+              <label for="validationDefault02" class="form-label">Apellido</label>
+              <input type="text" class="form-control" id="validationDefault02" value="" name="last" required>
+            </div>
+            <div class="col-md-6">
+              <label for="validationDefault03" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email"  name="email" required>
+            </div>
+            <div class="col-md-3">
+              <label for="validationDefault03" class="form-label">Ciudad</label>
+              <input type="text" class="form-control" id="validationDefault03"  name="city" required>
+            </div>
+            <div class="col-md-3">
+              <label for="validationDefault05" class="form-label">CP</label>
+              <input type="number " class="form-control" id="validationDefault05"  name="postalcode" required>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                <label class="form-check-label" for="invalidCheck2">
+                  Agree to terms and conditions
+                </label>
+              </div>
+            </div>
+            <div class="col-12">
+              <input type="submit" id="botonjs" value="Send Email" >
+            </div>
+          </form>
+        </div>
     </section>
+    <div id="overlay"></div>
     <footer>
       <div>
         <p>
@@ -52,7 +88,11 @@
         </p>
       </div>
     </footer>
-    <script src="./javascript/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="./javascript/products.js"></script>
+    <script src="./javascript/main.js"></script>
+    <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>\
+    <script type="text/javascript">emailjs.init('2x7WR3Ym-3YoFMf9V')</script>
+    <script src="./javascript/emailjs.js"></script>
 </body>
 </html>
